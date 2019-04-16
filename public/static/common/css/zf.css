@@ -1,0 +1,182 @@
+@charset "utf-8";
+/* CSS Document */
+ol, ul, li {
+    list-style: none;
+    list-style-type: none;
+}
+img {width: 100%;}
+body {background: #f7f7f7;}
+.zhifu_1{width: 100%; margin: auto; height: auto; overflow: hidden; background: #ffffff; margin-top: 1rem; margin-bottom: 1.5rem;padding: 2rem;}
+.zhifu_1 h1{width:100%; margin: auto; text-align: left; font-size: 1.5rem;color: #333; border-bottom: 1px solid #999; height: auto; line-height: 3rem; }
+.zhifu_1_fl {width:38%; height:auto; float: left; margin-top: 1rem;}
+.zhifu_1_fl img {width: 100%;}
+.zhifu_1_fr {width:60%; height:auto; float: right; margin-top: 1rem; }
+.zhifu_1_fr h3{width:100%; margin: auto; text-align: left; font-size: 1.2rem;color: #333;  margin-bottom: 1rem;}
+.zhifu_1_fr p {font-size: 1rem;color: #666; line-height: 1.7em;height: 1.7rem; }
+.zhifu_1_fr p span{font-size:1.2rem;color: #f60; font-weight: bold;}
+.zhifu_2{width:100%; margin: auto; height:auto; background: #ffffff; margin-top:1.5rem; padding:2rem 2rem 0rem  2rem; overflow: hidden; }
+.buy_pay_way {
+    background: #fff;
+    padding: 1rem 2rem 3rem;
+    margin-bottom:2rem;
+}
+.address_tips {
+    font-size: 1.2rem;
+    color: #000;
+   
+}
+.zhifubao_and_weixin {	padding-top: 2rem;
+    margin-bottom: 4rem;
+}
+.zhifubao_and_weixin ul li {
+
+    float: left;
+    width: 40%;
+    height:auto;
+    border: 1px solid #dcdcdc;
+    margin-right: 2rem;
+	padding: 0.5rem 0px 0px .5rem;
+}
+.zhifubao_and_weixin ul li img {width: 80%; margin: auto;}
+.zhifubao_and_weixin ul li.active {
+    border-color: #f60;
+}
+.pay_money {
+    float: right;
+}
+.pay_money .pay_money_tit {
+    font-size: 1.3rem;
+    color: #000;
+    margin-bottom: 2rem;
+}
+   
+.pay_money .pay_money_tit {
+    font-size: 1.3rem;
+    color: #000;
+    margin-bottom: 1.2rem;
+}.pay_money .go_btn {
+    width: 100%;
+    height:auto;
+    background: #f60;
+	line-height: 5rem;
+    font-size: 1.5rem;
+    color: #fff;
+    text-align: center;
+
+    border-radius: 5px;
+    display: block;
+}
+.weixin_pay{  background: #fff;}
+
+
+
+/*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*/
+/*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*/
+/*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*/
+
+.black_overlay{
+         display: none; 
+         position: absolute;  
+         top: 0%;  
+         left: 0%;  
+         width: 100%;  
+         height: 100%;  
+       background-color: #000;
+         z-index:1001;  
+         -moz-opacity: 0.6;  
+         opacity:0.6;  
+         filter: alpha(opacity=0.6);  
+    
+	  overflow: auto;
+    }  
+    .white_content {
+        display: none;  
+        position: absolute; 
+		width: 60%;
+		margin: auto;
+         top:100%;  
+         left:0%;      
+        background-color: #000;
+        z-index:1002; /* 数字的大小指明了div的相对层，数字大的在上层 */
+        overflow: auto;
+    }  
+
+
+.weixin_pay_box{
+    position:fixed;
+    margin: auto;
+    top:50%;
+  left: 12%;
+    margin-top:-5rem;
+    width:70%;
+	
+    padding:2rem;
+	height: auto;
+	overflow: hidden;
+    background:#fff;
+    border-radius:5px;
+	border: #999 solid 1px;
+}
+
+.weixin_pay_top{
+	width:40%;
+	height:auto;
+	line-height:1.5rem;
+    padding-bottom:1rem;
+    border-bottom:1px solid #eee;
+    margin-bottom:1rem;
+}
+.weixin_pay_top1{border-bottom:1px solid #eee;}
+.weixin_pay_con{
+    text-align: center;
+    color:#000;
+    font-size:1.5rem;
+}
+.weixin_pay_code{
+    width:50%;
+    height:auto;
+    overflow:hidden;
+    margin-top: 2rem;
+	margin: auto;
+}
+
+.weixin_pay_code img{
+    width:100%;
+}
+.wexin_pay_tips{
+    font-size:1.4rem;
+    margin-bottom:1rem;
+}
+
+
+.weixin_pay_con .pay_num span{
+    color:#d20101;
+    font-weight:bold;
+    display:inline-block;
+    margin-left:1rem;
+    margin-right:1rem;
+}
+
+/*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*/
+
+
+.btn{
+  display: inner-block;
+  padding: 5px;
+  border-radius: 1px;
+  cursor: pointer;
+	
+ 	
+}
+.pop{
+
+	
+  width:100%;
+	height:auto;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform:  translate(-50%,-50%);
+  display: none;
+ 
+}

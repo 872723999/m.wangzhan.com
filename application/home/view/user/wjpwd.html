@@ -1,0 +1,149 @@
+{include file="common/common_head"/}
+<script type="text/javascript" src="/static/common/js/jq.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    function tabs(tabTit,on,tabCon){
+        $(tabTit).children().hover(function(){
+            $(this).addClass(on).siblings().removeClass(on);
+            var index = $(tabTit).children().index(this);
+           	$(tabCon).children().eq(index).show().siblings().hide();
+    	});
+	};
+    tabs(".tab-hd","active",".tab-bd");
+});
+</script>
+<style>
+	/*忘记密码*/
+	.wjpwd{
+		color: blue;
+		font-size: 15px;
+	}
+</style>
+</head>
+
+<body style="background: #f7f7f7;">
+<header>
+<div class="head-middle">内蒙古都林教育</div>
+<div class="login_con">
+				<div class="login_con_inner">
+					<div class="login_top">
+						<ul class="clearfix">
+						
+							<li class="active">
+								<a href="#"> 忘记密码</a>
+							</li>
+
+						</ul>
+					</div>
+					<div class="login_bottom">
+						<div class="login_tab_con">
+							<div class="login_code">
+								<img src="/api/web/user/qrLoginImage"  alt="" class="erweima_auto"/>
+							
+							</div>
+							
+							<div class="iconList">
+								<ul class="clearfix">
+									<li>
+										<span><img src="/img/web/ic_login_sec.png"  alt="" /></span>
+										<p>安全</p>
+									</li>
+									<li>
+										<span><img src="/img/web/ic_login_effi.png"  alt="" /></span>
+										<p>高效</p>
+									</li>
+									<li>
+										<span><img src="/img/web/ic_login_bianjie.png"  alt="" /></span>
+										<p>便捷</p>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+						<div class="login_tab_con show">
+                            <ul>
+                        		<li class="input_mobile mobile_error_border">
+                            		<input type="text" placeholder="请输入手机号" class="login_mobile" id="user_name" />
+                          		</li>
+								<li class="mobile_error ">
+									<p class="text-red hide" id="mobile_error_tip"><img src="/img/web/ic_error.png" height="15" width="14" alt="" class="ic_error_tip"/>请输入正确的手机号</p>
+								</li>
+                         		<li class="input_mobile clearfix">
+                            		<input type="password" placeholder="请输入密码" class="login_password" id="user_pwd" />
+                        		</li>
+								<li class="mobile_error">
+									<p class="text-red hide" id="code_error_tip"><img src="/img/web/ic_error.png" height="15" width="14" alt="" class="ic_error_tip"/>请输入正确的验证码</p>
+								</li>
+                        		<li class="sign_in"><a href="javascript:;" class="login_register blue_bg" id="login_register">立即注册/登录</a></li>
+                        		<li class="login_tips">
+                            		提示：若未注册，将自动注册内蒙古都林教育账号   
+
+                        		</li>
+                        	</ul>
+                        </div>
+					</div>
+				</div>
+			</div>
+{include file="common/common_bottom"/}
+</body>
+
+
+<script>
+	// 验证手机号
+	function isPhoneNo(phone) { 
+		var pattern = /^1[34578]\d{9}$/; 
+		return pattern.test(phone); 
+	}
+
+	// 验证手机号
+	$('#user_name').blur(function(){
+		var user_name = $('#user_name').val();
+		if(!isPhoneNo(user_name)){
+			$("#mobile_error_tip").show();
+			$('#user_name').focus();
+			return false;
+		}else{
+			$("#mobile_error_tip").hide();
+		}
+	});
+
+	// 登录、注册
+	$('.login_register').click(function(){
+		var user_name = $('#user_name').val();
+		var user_pwd = $('#user_pwd').val();
+		if(!user_name){
+			$("#mobile_error_tip").show();
+			$("#mobile_error_tip").html('请输入正确的手机号！');
+			$('#user_name').focus();
+			return false;
+		}
+		if(!user_pwd){
+			$("#code_error_tip").show();
+			$("#code_error_tip").html('密码不能为空！');
+			$('#user_pwd').focus();
+			return false;
+		}else{
+			// var url = '{$admin_path}'+'api/User/check_mobile';
+			var url = "{:url('wjpwd')}";
+			$.ajax({
+				url : url,
+				data : {user_name:user_name,user_pwd:user_pwd},
+				dataType : 'json',
+				type : 'POST',
+				success : function( msg ){
+					if( msg.code==2 ){
+						alert('修改成功，请重新登录')
+						window.location.href="{:url('user/login')}";
+					}else{
+						$("#code_error_tip").show();
+						$("#code_error_tip").html(msg.message);
+						$('#user_pwd').focus();
+						return false;
+					}
+				}
+			});
+		}
+	});
+</script>
+
+</html>

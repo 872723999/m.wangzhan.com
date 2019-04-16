@@ -1,0 +1,61 @@
+{include file="common/common_head"/}
+
+<script type="text/javascript" src="/static/home/js/jq.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    function tabs(tabTit,on,tabCon){
+        $(tabTit).children().hover(function(){
+            $(this).addClass(on).siblings().removeClass(on);
+            var index = $(tabTit).children().index(this);
+            $(tabCon).children().eq(index).show().siblings().hide();
+      });
+  };
+    tabs(".tab-hd","active",".tab-bd");
+});
+</script>
+</head>
+
+<body style="background: #f7f7f7;">
+<header>
+    {include file="common/common_navhead"/}
+    <div class="head-middle">内蒙古都林教育</div>
+    <a class="backprev" href="{:url('my/index')}"> <img src="/static/home/img/denglu.png" alt="内蒙古都林教育"/> </a> </header>
+    <div class="xinwen_ban"><img src="/static/home/img/new_ban.jpg" alt="内蒙古都林教育"/></div>
+  
+    <div class="wnewsym">
+        <div class="wessay-tuijian-news">
+            <div class="top1">
+                <ul class="clear">
+                    <li class="active article_type_list"  id="article_type_0"><a href="{:url('article_list')}?article_type=0">全部新闻</a></li>
+                      {volist name="article_type" id="val"}
+                        <li class="article_type_list"  id="article_type_{$key}"> <a href="{:url('article_list')}?article_type={$key}">{$val}</a> </li>
+                      {/volist}
+                </ul>
+            </div>
+        </div>
+    <div class="wnew_conner">
+        <ul>
+            {volist name="list" id="val"}
+                <li>
+                    <div class="wnew_conner_fl">
+                        <img src="{$admin_path}{$val.cover_pic}" height="138px;" width="195px;" alt="内蒙古都林教育"/>
+                    </div>
+                    <div class="wnew_conner_fr"><p>{$val.title}</p>
+                        <div class="wnew_conner_ner">{$val.introduction}<a href="{:url('article/info')}?id={$val.id}">[阅读原文]</a></div>
+                        <div class="wnew_conner_ner_fl">{$val.create_time|date="Y-m-d H:i"}</div>
+                        <div class="wnew_conner_ner_fr">{$val.show_num}</div>
+                    </div>
+                </li>
+            {/volist}
+        </ul>
+    </div>
+{include file="common/common_bottom"/}
+</body>
+</html>
+<script>
+    $(function(){
+        var article_type = "<?=$_GET['article_type']?>";
+        $(".article_type_list").removeClass('active');
+        $("#article_type_"+article_type).addClass('active');
+    });
+</script>

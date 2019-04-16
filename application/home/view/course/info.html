@@ -1,0 +1,122 @@
+{include file="common/common_head"/}
+<script type="text/javascript" src="/static/home/js/jq.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    function tabs(tabTit,on,tabCon){
+        $(tabTit).children().hover(function(){
+            $(this).addClass(on).siblings().removeClass(on);
+            var index = $(tabTit).children().index(this);
+           	$(tabCon).children().eq(index).show().siblings().hide();
+    	});
+	};
+    tabs(".tab-hd","active",".tab-bd");
+});
+</script>
+</head>
+
+<body style="background: #f7f7f7;">
+<header>
+  {include file="common/common_navhead"/}
+  <div class="head-middle">内蒙古都林教育</div>
+  <a class="backprev" href="{:url('my/index')}"> <img src="/static/home/img/denglu.png" alt="内蒙古都林教育"/> </a> </header>
+<div class="xinwen_ban"><img src="/static/home/img/kcbxq.jpg" alt="内蒙古都林教育"/></div>
+<div class="wnewxqy">
+  <h3><a href="index.html" >首页</a>><a href="qbkc.html">发现课程</a>><span><a href="qukcxqy.html">课程包详情</a></span></h3>
+</div>
+<div class="zh-class-page">
+  <div class="qbkc_t"> <img src="{$info.pic}" width="100%" style="width: 475px;height: 273px;" alt="内蒙古都林教育"></div>
+  <div class="qbkc_tc">
+    <h1>{$info.title}</h1>
+    <p>{$info.describe}</p>
+    <h2>￥{$info.price}元</h2>
+    <p style="margin-top: 1rem">讲师:{$info.teacher_id}&nbsp;&nbsp;&nbsp;课时: {$count}节&nbsp;&nbsp;&nbsp;参与人数: 16277人</p>
+  </div>
+    <!-- 如果价钱为0，直接跳转到视频页面 -->
+    {if $info.price==0}
+        <a href="{:url('video')}?course_id={$info.id}&user_id={$uid}"><div class="qbkc_tc_zixun">我要学习</div></a>
+    {elseif $is_lock==1 /}
+    <!-- 如果当前课程针对当前用户是解锁的，跳转到视频页面 -->
+        <a href="{:url('video')}?course_id={$info.id}"><div class="qbkc_tc_zixun">我要学习</div></a>
+    {else /}
+        <a href="{:url('pay/index')}?course_id={$info.id}"><div class="qbkc_tc_zixun">我要学习</div></a>
+    {/if}
+
+</div>
+<div class="course-detail-box-l right">
+  <div class="course-detail-box-header top-tit clearfix">
+    <div class="course-detail-bottom-line">
+      <div class="top-left fl">
+        <ul class="clearfix">
+          <li id="courseDetailTab" class="course-detail-nav course-detail-nav-selected "><a href="#courseDetailBox">课程介绍</a></li>
+          <li id="courseDirTab" class="course-detail-nav"><a href="#courseDirBox">课程目录</a></li>
+          <li id="courseRecommTab" class="course-detail-nav"><a href="#courserecommbox">相关推荐</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="courseDetailBox" class="zhh-editor" >
+    <div class="opencourse-tabcon-1"> <span class="ic_courseintro"><img src="/static/home/img/courseintro.png" alt="" width="39"></span> <span class="con-tit-1">课程介绍</span> </div>
+    <h2 style="text-align: center; margin-bottom: 10px;">{$info.title}</h2>
+    <p style="font-size: 16px; color: #333333; line-height: 30px;">{$info.describe}</p>
+  </div>
+		<ul id="courseDirBox">
+		    <div class="opencourse-tabcon-1"> <span class="ic_courseintro"><img src="/static/home/img/coursemulu.png" alt="" width="34"></span> <span class="con-tit-1">课程目录</span> </div>
+
+		    {notempty name="course_list"}
+            	{volist name="course_list" id="val"}
+		    	    <!-- 章节 -->
+		    	    <li class="course-lesson-dir-box">
+		    	    	<div class="course-lesson-dir"> <span class="course-lesson-icon course-lesson-unfold"></span> <span class="course-lesson-dir-title">{$val.z_title[0]}</span>
+		    	      	</div>
+		    	      	<!-- 部分 -->
+		    	    	<div class="course-lesson-box">
+		    	        	<ul class="course-lesson-right">
+		    	        		{notempty name="val.children"}
+				            		{volist name="val.children" id="val2"}
+				    	        		<li class="course-lesson-item">
+				    		        		<div title="{$val2.b_title}" class="course-lesson-title">{$val2.b_title}</div>
+                                          	<!-- 如果价钱为0，直接跳转到视频页面 -->
+    										{if $info.price==0}
+                                          		<a href="{:url('video')}?bufen_id={$val2.id}" class="course-lesson-btn" target="_blank">立即播放</a>
+                                          	{elseif $is_lock==1 /}
+    										<!-- 如果当前课程针对当前用户是解锁的，跳转到视频页面 -->
+                                            	<a href="{:url('video')}?bufen_id={$val2.id}" class="course-lesson-btn" target="_blank">立即播放</a>
+                                          	{else /}
+                                          		<a href="{:url('pay/index')}?course_id={$info.id}" class="course-lesson-btn" target="_blank">立即播放</a>
+                                          	{/if}
+				    			            <div class="course-lesson-duration"> <span class="ic_lesson-duration"><img src="/static/home/img/ic_time_1.png" alt="" width="13"></span> 00:00:54 </div>
+				    	          		</li>
+				    	        	{/volist}
+			            		{/notempty}
+		    	        	</ul>
+		    	      	</div>
+		    	    </li>
+			    {/volist}
+		    {/notempty}
+		</ul>
+  <div id="courserecommbox">
+    <div class="opencourse-tabcon-1"> <span class="ic_courseintro"><img src="/static/home/img/tuijainkecheng.png" alt="" width="36"></span> <span class="con-tit-1">相关推荐</span> </div>
+    <div class="course-recomm-inner" style="margin-bottom: 10px;">
+    	<ul style="margin-bottom: 0;" class="clearfix">
+    		{notempty name="tui_course_list"}
+    			{volist name="tui_course_list" id="val"}
+		        	<li style="">
+		        		<a href="{:url('course/info')}?id={$val.id}" target="_blank">
+			          		<div>
+			            		<div class="course-side-img"> <img src="{$admin_path}{$val.pic}" width="280px;" height="158px" /> </div>
+			        		</div>
+			        		<div class="course-side-free">
+			            		<div class="course-side-book-title">{$val.title}</div>
+			            		<span>￥{$val.price}元</span>
+			            	</div>
+			        	</a>
+			        </li>
+	        	{/volist}
+	        {/notempty}
+    	</ul>
+    </div>
+  </div>
+</div>
+{include file="common/common_bottom"/}
+</body>
+</html>

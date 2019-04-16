@@ -1,0 +1,129 @@
+{include file="common/common_head"/}
+
+<script type="text/javascript" src="/static/home/js/jq.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    function tabs(tabTit,on,tabCon){
+        $(tabTit).children().hover(function(){
+            $(this).addClass(on).siblings().removeClass(on);
+            var index = $(tabTit).children().index(this);
+            $(tabCon).children().eq(index).show().siblings().hide();
+        });
+    };
+    tabs(".tab-hd","active",".tab-bd");
+});
+</script>
+</head>
+
+<body style="background: #f7f7f7;">
+<header>
+  {include file="common/common_navhead"/}
+  <div class="head-middle">内蒙古都林教育</div>
+  <a class="backprev" href="{:url('my/index')}"> <img src="/static/home/img/denglu.png" alt="内蒙古都林教育"/> </a> </header>
+ <div class="xinwen_ban"><img src="/static/home/img/kcbxq.jpg" alt="内蒙古都林教育"/></div>
+    <div class="wnewxqy"><h3><a href="index.html" >首页</a>><a href="kcb.html">课程包</a>><span><a href="kcbxqy.html">课程包详情</a></span></h3></div>
+
+    <div class="kcbxqy_con">
+        <div class="kcbxqy_confl"><div class="kcbxqy_confl_fl"><img src="/static/home/img/kcxq.jpg" width="100%" alt="内蒙古都林教育"/ ></div>
+        <div class="kcbxqy_confl_fr">
+          <ul>
+            <li>
+              <p>阶段</p>
+              <p> 0</p>
+            </li>
+            <li>
+              <p>课程</p>
+              <p>{$course_num}</p>
+            </li>
+            <li>
+              <p>学员</p>
+              <p> 80</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="kcbxqy_confr">
+        <h1>{$info.title}</h1>
+        <p>{$info.describe}</p>
+        <p>法考专项班有效天数：{$info.day}天</p>
+        <h2>打包价格：￥{$info.price}<s>￥{$info.old_price}</s></h2>
+       
+      </div>
+         <a href="{:url('pay/index')}?package_id={$info.id}"><div class="kcbxqy_confr_zixun" style="margin-top: 1rem;">立即购买</div></a>
+    </div>
+    
+<div class="content-block">
+  <div class="con-tab-title wow fadeInUp">
+    <div>
+      <h4 style="border-bottom:.2rem solid #ee7800;"><a style="color:#ff6600;">课程详情</a></h4>
+      <h4><a>阶段课程</a></h4>
+   
+    </div>
+  </div>    
+    
+    <div class="con-tab con-tab-1" style="display:block">
+    
+    
+      <div class="kcbxqy_neer_ner">
+              <h1>课程详情</h1>
+              <h3>{$info['title']}</h3>
+              <div class="kcbxqy_neer_ne">
+                <?=$info['content']?>
+              </div>
+            </div>
+    
+    </div>
+        <div class="con-tab con-tab-2">
+    
+    <div class="kcsz_ner">
+        <ul>
+            {notempty name="course_list"}
+                {volist name="course_list" id="val"}
+                    <a href="{:url('course/info')}?id={$val.id}" target="_blank">
+                        <li>
+                            <img src="{$admin_path}{$val.pic}" style="height: 186px;width: 186px;" alt="内蒙古都林教育"/>
+                            <h3>{$val.title}</h3>
+                            <div>
+                                <div class="kcsz_ner_fr">{$val.cang}</div>
+                                <div class="kcsz_ner_righ">￥{$val.price}元</div>
+                            </div>
+                        </li>
+                    </a>
+                {/volist}
+                {else /}
+                <div style="text-align: center;">
+                    <font color="red">数据为空</font>
+                </div>
+            {/notempty}
+        </ul>
+     </div>
+    
+    </div>
+    
+     </div>
+    
+    <script type="text/javascript">$(".con-tab-title h4:nth-child(1)").hover(function () {
+    $(this).css("border-bottom", ".2rem solid #ee7800").find("a").css("color", "#ff6600");
+    $(this).siblings().find("a").css("color", "#000000");
+    $(".con-tab-1").show();
+    $(".con-tab-2").hide();
+
+    $(this).siblings().css("border-bottom", "none")
+}, function () {
+    $(".con-tab-1").show();
+    $(this).siblings().find("a").css("color", "#000000")
+});
+$(".con-tab-title h4:nth-child(2)").hover(function () {
+    $(this).css("border-bottom", ".2rem solid #ee7800").find("a").css("color", "#ff6600");
+    $(this).siblings().find("a").css("color", "#000000");
+    $(".con-tab-2").show();
+    $(".con-tab-1").hide();
+    
+    $(this).siblings().css("border-bottom", "none")
+}, function () {
+    $(".con-tab-2").show();
+    $(this).siblings().find("a").css("color", "#000000")
+});</script>
+  {include file="common/common_bottom"/}
+</body>
+</html>

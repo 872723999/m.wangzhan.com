@@ -1,0 +1,64 @@
+{include file="common/common_head"/}
+<link rel="stylesheet" href="/static/common/css/grzc.css" />
+<script type="text/javascript" src="/static/home/js/jq.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    function tabs(tabTit,on,tabCon){
+        $(tabTit).children().hover(function(){
+            $(this).addClass(on).siblings().removeClass(on);
+            var index = $(tabTit).children().index(this);
+           	$(tabCon).children().eq(index).show().siblings().hide();
+    	});
+	};
+    tabs(".tab-hd","active",".tab-bd");
+});
+</script>
+</head>
+
+<body style="background: #f7f7f7;">
+<header>
+    {include file="common/common_navhead"/}
+  
+  <div class="head-middle">内蒙古都林教育</div>
+  <a class="backprev" href="denglu.heml"> <img src="/static/home/img/denglu.png" alt="内蒙古都林教育"/> </a> </header>
+ <div class="xinwen_ban"><img src="/static/home/img/ms.jpg" alt="内蒙古都林教育"/></div>
+	<div class="wnewxqy"><h3><a href="index.html" >首页</a>><span><a href="wap_zf.html">个人中心</a></span></h3></div>
+	
+
+	   <div class="myinfor_con">
+    <div class="myinfor_top">
+        <div class="left">
+            <h3>
+                都林学员_{$user_info.id}
+            </h3>
+            <div class="mytel">
+                <span class="ic_tel"><img src="/static/home/img/ic_phone.png" alt=""></span>
+                <span class="telnum">{$user_info.user_name}</span>
+            </div>
+        </div>
+        <div class="right">
+            <img src="https://osscdn.zhongheschool.com/avatar/schoolDefaultAvatar.png" alt="" width="100%">
+        </div>
+    </div>
+    <div class="bg_line"></div>
+    <div class="myinfor_list">
+        <ul>
+            <li>
+                <a href="{:url('my/course_list')}?course_type=1" target="_self">
+                    <span><img src="/static/home/img/ic_kecheng.png" alt="" class="icon_left"></span>我的课程 <span class="arr"><img src="/static/home/img/ic_jiantou.png" alt="" width="100%"></span>
+                </a>
+            </li>
+            <li>
+                <a href="{:url('my/order_list')}?order_type=1" target="_self">
+                    <span><img src="/static/home/img/ic_dingdan.png" alt="" class="icon_left"></span>我的订单 <span class="arr"><img src="/static/home/img/ic_jiantou.png" alt="" width="100%"></span>
+                </a>
+            </li>
+          
+        </ul>
+    </div>
+    <a href="{:url('user/login_out')}" class="logoutBtn" style="" >退出登录</a>
+</div>
+	
+{include file="common/common_bottom"/}
+</body>
+</html>

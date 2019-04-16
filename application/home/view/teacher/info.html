@@ -1,0 +1,52 @@
+{include file="common/common_head"/}
+
+<script type="text/javascript" src="/static/home/js/jq.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    function tabs(tabTit,on,tabCon){
+        $(tabTit).children().hover(function(){
+            $(this).addClass(on).siblings().removeClass(on);
+            var index = $(tabTit).children().index(this);
+            $(tabCon).children().eq(index).show().siblings().hide();
+      });
+  };
+    tabs(".tab-hd","active",".tab-bd");
+});
+</script>
+</head>
+
+<body style="background: #f7f7f7;">
+<header>
+  {include file="common/common_navhead"/}
+  <div class="head-middle">内蒙古都林教育</div>
+  <a class="backprev" href="{:url('my/index')}"> <img src="/static/home/img/denglu.png" alt="内蒙古都林教育"/> </a> </header>
+ <div class="xinwen_ban"><img src="/static/home/img/ms.jpg" alt="内蒙古都林教育"/></div>
+  <div class="wnewxqy"><h3><a href="/" >首页</a>><a href="{:url('teacher/list')}">名师专区</a>><span><a href="newsxqy.html">{$info.name}</a></span></h3></div>
+  <div class="wmsxqy"><div class="wmsxqy_im"><img src="/static/home/img/ms1.jpg"  alt="内蒙古都林教育"/> </div>
+  <div class="wmsxqy_fr"><h3>{$info.name}</h3><p>都林教育讲师</p>
+    <div class="wmsxqy_ner">{$info.introduction}</h2></div>
+    
+    </div>
+  
+  </div>
+<div class="wmsxqy_tit"><h3>开设课程</h3></div> 
+    <div class="kcsz_ner">
+        <ul>
+            {volist name="course_list" id="val"}
+                <a href="{:url('course/info')}?id={$val.id}" target="_blank">
+                    <li>
+                        <img src="{$admin_path}{$val.pic}" alt="内蒙古都林教育"/>
+                        <h3>{$val.title}</h3>
+                        <p>{$val.describe}</p>
+                        <div>
+                            <div class="kcsz_ner_fr">{$val.cang}</div>
+                            <div class="kcsz_ner_righ">￥{$val.price}元</div>
+                        </div>
+                    </li>
+                </a>
+            {/volist}
+        </ul>
+    </div>
+{include file="common/common_bottom"/}
+</body>
+</html>

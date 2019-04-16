@@ -1,0 +1,303 @@
+#静态资源
+rewrite ^/uploads/(.*)$  /uploads/$1 last;
+rewrite ^/static/(.*)$  /static/$1 last;
+
+
+#demo
+#院校301跳转
+
+#rewrite ^/library$ /library/ permanent;
+#rewrite ^/ad/adl$ /library/ permanent;
+#rewrite ^/ad/adl/$ /library/ permanent;
+#rewrite ^/ad/adl.html$ /library/ permanent;
+#rewrite ^/library/$ /index.php?s=ad/adl.html last;
+
+
+#服务团队301跳转===================================================================   服务团队  =======================
+rewrite ^/tutor/special$ /tutor/special/ permanent;
+rewrite ^/tutor/special/$ /index.php?s=home/tutor/special last;
+
+#导师详情页
+rewrite ^/teacher/([0-9]+).html$ /index.php?s=home/tutor/teacher&id=$1 last;
+
+#同专业导师---学长学姐
+rewrite ^/sister/([0-9]+).html$ /index.php?s=home/sister/detail&id=$1 last;
+
+#服务团队301跳转===================================================================   服务团队  =======================
+
+
+#背景提升===================================================================   背景提升  =======================
+
+#聚合页
+#rewrite ^/page/polymerization$ /page/polymerization/ permanent;
+#rewrite ^/page/polymerization.html$ /page/polymerization/ permanent;
+rewrite ^/page/polymerization.html$ /index.php?s=home/promote/index last;
+
+#背景提升详情页   /home/promote/content?id=14    
+#按照  背景项目类型来命名 路径
+
+#名企实习
+rewrite ^/mqsx/([0-9]+).html$ /index.php?s=/home/promote/content&id=$1 last;
+#国际义工
+rewrite ^/gjyg/([0-9]+).html$ /index.php?s=/home/promote/content&id=$1 last;
+#名校科研
+rewrite ^/mxky/([0-9]+).html$ /index.php?s=/home/promote/content&id=$1 last;
+#学术竞赛
+rewrite ^/xsjs/([0-9]+).html$ /index.php?s=/home/promote/content&id=$1 last;
+#夏校暑研
+rewrite ^/xxsy/([0-9]+).html$ /index.php?s=/home/promote/content&id=$1 last;
+#艺术作品集
+rewrite ^/yszpj/([0-9]+).html$ /index.php?s=/home/promote/content&id=$1 last;
+
+
+
+
+#背景提升筛选页			/home/promote/list?stage_type=2&type=4&page=3   project
+
+rewrite ^/project$ /project/ permanent;
+rewrite ^/project/$  /index.php?s=/home/promote/list last;
+
+#  一进来的时候   /project/0-0-1.html
+rewrite ^/project/([0-9]+)-([0-9]+)-([0-9]+).html$  /index.php?s=/home/promote/list&stage_type=$1&type=$2&page=$3 last;
+
+
+#背景提升===================================================================   背景提升  =======================
+
+#活动讲座===================================================================   活动讲座  =======================
+
+#活动详情页   /home/activity/activity_content?id=2   
+#按照  活动类型来命名 路径
+
+#专家讲座
+rewrite ^/chair/([0-9]+).html$ /index.php?s=/home/activity/activity_content&id=$1 last;
+#招华访生
+rewrite ^/chairafs/([0-9]+).html$ /index.php?s=/home/activity/activity_content&id=$1 last;
+#行前指导
+rewrite ^/chairagd/([0-9]+).html$ /index.php?s=/home/activity/activity_content&id=$1 last;
+#公开课
+rewrite ^/chairasa/([0-9]+).html$ /index.php?s=/home/activity/activity_content&id=$1 last;
+
+
+
+
+#活动讲座筛选页			/home/activity/activity_list?stage_type=2&type=4&page=3   chair
+#进来的时候
+#rewrite ^/chair$ /chair/ permanent;
+#rewrite ^/chair/$  /index.php?s=/home/activity/activity_list last;
+
+#点击进行筛选
+rewrite ^/activity/([0-9]+)-([0-9]+)-([0-9]+).html$  /index.php?s=/home/activity/activity_list&stage_type=$1&type=$2&page=$3 last;
+
+#活动讲座===================================================================   活动讲座  =======================
+
+
+
+#留学资讯===================================================================   留学资讯  =======================
+
+#留学资讯筛选页面			/home/article/list&apply_stage_id=$1&article_type_id=$2&page=$3    article
+
+#进来的时候
+rewrite ^/article$ /article/ permanent;
+rewrite ^/article/$  /index.php?s=/home/article/list last;
+
+#点击进行筛选
+rewrite ^/article/([0-9]+)-([0-9]+)-([0-9]+).html$  /index.php?s=/home/article/list&apply_stage_id=$1&article_type_id=$2&page=$3 last;
+
+#活动详情页   /home/article/info?id=31 
+#按照  活动类型来命名 路径
+
+#成功故事
+rewrite ^/studentstory/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#申请规划
+rewrite ^/informationsvd/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#院校排名
+rewrite ^/informationyxpm/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#择校指南
+rewrite ^/informationsmt/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#面试指导
+rewrite ^/informationmszd/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#留学费用
+rewrite ^/informationlxfy/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#专业解析
+rewrite ^/informationzyjx/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#奖学金
+rewrite ^/informationjxj/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#文书写作
+rewrite ^/informationwsxz/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#海外生活
+rewrite ^/informationsol/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#背景提升案例
+rewrite ^/informationbjal/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#考试资讯
+rewrite ^/informationsts/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#行前指南
+rewrite ^/informationshb/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+# 费用
+rewrite ^/informationfy/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+
+# 高中留学新闻
+rewrite ^/informationsnews/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+
+
+#301重定向    高中和本科的院校排名   
+rewrite ^/collegerrk/([0-9]+).html$ /informationyxpm/$1.html permanent;
+rewrite ^/seniormrk/([0-9]+).html$ /informationyxpm/$1.html permanent;
+
+#301重定向    高中和本科的留学费用 
+rewrite ^/collegercs/([0-9]+).html$ /informationfy/$1.html permanent;
+rewrite ^/seniormcs/([0-9]+).html$ /informationfy/$1.html permanent;
+
+
+
+#保留路径
+#================本科
+#本科选校
+rewrite ^/collegerss/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#本科申请
+rewrite ^/collegeral/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#大学排名
+rewrite ^/collegerrk/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#本科转学
+rewrite ^/collegertr/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#留学费用
+rewrite ^/collegercs/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#专业解析
+rewrite ^/collegermj/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#奖学金
+rewrite ^/collegersrs/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+
+#================高中
+#高中申请
+rewrite ^/seniormal/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#高中排名
+rewrite ^/seniormrk/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#高中选校
+rewrite ^/seniormss/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#高中面试
+rewrite ^/seniormit/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#留学费用
+rewrite ^/seniormcs/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#寄宿家庭
+rewrite ^/seniormfm/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+#海外监管
+rewrite ^/seniormsp/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+
+#rewrite ^/chair/([0-9]+).html$ /index.php?s=/home/article/info&id=$1 last;
+
+
+#留学资讯===================================================================   留学资讯  =======================
+
+
+#寄宿家庭===================================================================   寄宿家庭  =======================
+
+#筛选页面		/home/Family/list
+rewrite ^/fmfml$ /fmfml/ permanent;
+rewrite ^/fmfml/$  /index.php?s=/home/Family/list last;
+ 
+#点击进行筛选
+rewrite ^/fmfml/([0-9]+)-([0-9]+).html$  /index.php?s=/home/family/list&state_id=$1&page=$2 last;
+
+#详情页面	/Family/info?id=4
+rewrite ^/fmcontent/([0-9]+).html$ /index.php?s=/home/family/info&id=$1 last;
+#寄宿家庭===================================================================   寄宿家庭  =======================
+
+#主页面===================================================================== 	主页面  ==================
+
+#高中页面 /home/apply/high_school     /middle/
+
+rewrite ^/middle$ /middle/ permanent;
+rewrite ^/middle/$  /index.php?s=/home/apply/high_school last;
+
+#本科     /home/apply/undergraduate   /college/
+
+rewrite ^/college$ /college/ permanent;
+rewrite ^/college/$  /index.php?s=/home/apply/undergraduate last;
+
+#研究生     /home/apply/undergraduate   /graduate/
+
+rewrite ^/graduate$ /graduate/ permanent;
+rewrite ^/graduate/$  /index.php?s=/home/apply/graduate_student last;
+#主页面===================================================================== 	主页面  ==================
+
+# 成功案例
+rewrite ^/success/([0-9]+).html$ /index.php?s=/home/success/info&id=$1 last;
+
+
+#专题页面===================================================================    专题页面  ==================
+
+#初中7-8                 高中-我要就读-初中   
+rewrite ^/page/sevenclass.html$ /page/middle_school.html permanent;
+rewrite ^/page/eightclass.html$ /page/middle_school.html permanent;
+
+#高中9-12                 高中-我要就读-初中   
+rewrite ^/page/nineclass.html$ /page/high_school.html permanent;
+rewrite ^/page/tenclass.html$ /page/high_school.html permanent;
+rewrite ^/page/tenoneclass.html$ /page/high_school.html permanent;
+rewrite ^/page/tentwoclass.html$ /page/high_school.html permanent;
+
+#高中-走读高中
+rewrite ^/page/goreadsenior.html$ /page/attnd_high.html permanent;
+
+#高中-寄宿高中
+rewrite ^/page/boardsenior.html$ /page/lodging.html permanent;
+
+#高中-艺术高中
+rewrite ^/page/artsenior.html$ /page/art_high.html permanent;
+
+#高中-蓝带高中
+rewrite ^/page/bluesenior.html$ /page/blue_ribbon.html permanent;
+
+#高中-面试流程
+rewrite ^/page/seniormsflow.html$ /page/interview.html permanent;
+
+#本科-综合类大学
+rewrite ^/page/zhcollege.html$ /page/comprehensive.html permanent;
+
+#本科-文理学院
+rewrite ^/page/wlcollege.html$ /page/sciences.html permanent;
+
+#本科-社区大学
+rewrite ^/page/sqcollege.html$ /page/community.html permanent;
+
+#本科-社区大学
+rewrite ^/page/sqcollege.html$ /page/community.html permanent;
+
+#本科-院校排名
+rewrite ^/page/collegesort.html$ /page/university_ranking.html permanent;
+
+#中学考试  中学考试     出国考试 
+rewrite ^/page/seniortest.html$ /page/testprep.html permanent;
+rewrite ^/page/collegetest.html$ /page/testprep.html permanent;
+
+#背景提升
+rewrite ^/page/winterschool.html$ /page/polymerization.html permanent;
+rewrite ^/page/collegebackup.html$ /page/polymerization.html permanent;
+rewrite ^/page/seniorbackup.html$ /page/polymerization.html permanent;
+rewrite ^/page/summerschool.html$ /page/polymerization.html permanent;
+rewrite ^/page/inserschool.html$ /page/polymerization.html permanent;
+rewrite ^/page/overseaschool.html$ /page/polymerization.html permanent;
+
+#成功案例
+rewrite ^/page/studentstory.html$ /article/0-204-1.html permanent;
+rewrite ^/page/thanktrue.html$ /article/0-204-1.html permanent;
+rewrite ^/page/offerexample.html$ /article/0-204-1.html permanent;
+
+
+
+
+
+#处理专题页面  添加后缀.html
+rewrite ^/page/([\w]+)$ /page/$1.html permanent;
+rewrite ^/page/([\w]+)(\/)$ /page/$1.html permanent;
+rewrite ^/page/([\w]+).html$ /index.php?s=home/page/$1.html last;
+
+
+
+
+
+#隐藏index.php
+rewrite  ^(.*)$  /index.php?s=$1 last;
+
+
+
+break;

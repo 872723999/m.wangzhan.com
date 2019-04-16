@@ -1,0 +1,40 @@
+<div class="head-right">
+    <button class="mdui-btn app-btn" mdui-drawer="{target: '#left-drawer'}"><img src="/static/home/img/menu.png" alt="内蒙古都林教育"/></button>
+    <div class="mdui-drawer mdui-drawer-right mdui-drawer-close" id="left-drawer">
+        <ul class="mdui-list app-slide-menu app-collapse-menu" mdui-collapse="{accordion: true}">
+            <li class="mdui-list-item mdui-ripple app-list-home ">
+                <a href="/" class="app-list-item-link mdui-text-left ">
+                    <div class="mdui-list-item-content"> <i class="mdui-list-item-icon mdui-icon material-icons"> &#xe88a; </i>首页 </div>
+                </a>
+            </li>
+            <li class="mdui-collapse-item app-hide-list  app-collapse-list">
+                <a href="{:url('course/course_list')}?classType_id=0&classSmallType_id=0&teaching_type=0" class=" mdui-list-item mdui-ripple  mdui-p-x-0">
+                <div class="menu-click mdui-list-item-content mdui-text-left"> 
+                    发现课程 <i class="mdui-collapse-item-arrow mdui-icon material-icons mdui-float-right"> &#xe5cc; </i>
+                </div>
+                </a> 
+            </li>
+            <li class="mdui-collapse-item app-hide-list  app-collapse-list">
+                <a href="{:url('course/bao_list')}?classType_id=1" class=" mdui-list-item mdui-ripple  mdui-p-x-0">
+                <div class="menu-click mdui-list-item-content mdui-text-left"> 
+                    课程包 <i class="mdui-collapse-item-arrow mdui-icon material-icons mdui-float-right"> &#xe5cc; </i>
+                </div>
+                </a> 
+            </li>
+            <li class="mdui-collapse-item app-hide-list  app-collapse-list">
+                <a href="{:url('teacher/list')}" class=" mdui-list-item mdui-ripple  mdui-p-x-0">
+                    <div class="menu-click mdui-list-item-content mdui-text-left">
+                        名师 <i class="mdui-collapse-item-arrow mdui-icon material-icons mdui-float-right"> &#xe5cc; </i>
+                    </div>
+                </a>
+            </li>
+            <li class="mdui-collapse-item app-hide-list  app-collapse-list">
+                <a href="{:url('article/article_list')}" class=" mdui-list-item mdui-ripple  mdui-p-x-0">
+                    <div class="menu-click mdui-list-item-content mdui-text-left">
+                        新闻中心 <i class="mdui-collapse-item-arrow mdui-icon material-icons mdui-float-right"> &#xe5cc; </i>
+                    </div>
+                </a>
+            </li>
+      </ul>
+    </div>
+</div>

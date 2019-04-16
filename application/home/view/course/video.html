@@ -1,0 +1,73 @@
+{include file="common/common_head"/}
+<script type="text/javascript" src="/static/common/js/jq.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    function tabs(tabTit,on,tabCon){
+        $(tabTit).children().hover(function(){
+            $(this).addClass(on).siblings().removeClass(on);
+            var index = $(tabTit).children().index(this);
+            $(tabCon).children().eq(index).show().siblings().hide();
+        });
+    };
+    tabs(".tab-hd","active",".tab-bd");
+});
+</script>
+</head>
+
+<body style="background: #f7f7f7;">
+<header>
+  {include file="common/common_navhead"/}
+  <div class="head-middle">内蒙古都林教育</div>
+  <a class="backprev" href="denglu.heml"> <img src="/static/home/img/denglu.png" alt="内蒙古都林教育"/> </a> </header>
+<div class="shipin"><h3>当前正在播放：法律职业道德（蒙授）</h3>
+<!--视频修改--><!--视频修改--> <!--视频修改--> <!--视频修改--> <!--视频修改--> <!--视频修改--> <!--视频修改--> <!--视频修改--> <!--视频修改-->   <div class="shipin_img">
+    <video autobuffer="" controls="" id="video" src="{$course_list[0]['b_video']}" controlslist="nodownload" style="height: 400px;" poster="/static/home/img/1.jpg" width="100%" ></video>
+  </div>
+    
+    
+    
+    </div>
+    <div class="shipin_fr_fr">
+        <h3>{$course_list[0]['k_title']}</h3>
+        <ul>
+            {volist name="course_list" id="val"}
+                <li><a  href="javascript:;" data-path="{$val.b_video}" class="video_path"><span>{$val['b_title']}</span><img style="float: right" src="/static/home/img/1.png"/></a></li>
+            {/volist}
+        </ul>
+    </div><!--视频修改--> <!--视频修改--> <!--视频修改--> <!--视频修改--> <!--视频修改--> <!--视频修改--> <!--视频修改--> <!--视频修改--> <!--视频修改--> 
+    <div class="shipin_fr_fl_t">
+      <div class="shipin_fr_fl_tit">
+        <p>相关推荐</p>
+      </div>
+      <div class="shipin_fr_fl_ner">
+        <ul>
+            {volist name="tui_list" id="val"}
+                <li>
+                    <a href="{:url('course/info')}?id={$val.id}" target="_blank"><img src="{$admin_path}{$val.pic}" style="height: 154px;width: 274px;" width="100%"  alt="内蒙古都林教育"/>
+                        <div><font>{$val.title}</font> </div>
+                    </a>
+                </li>
+            {/volist}
+        </ul>
+      </div>
+    </div>
+    
+  {include file="common/common_bottom"/}
+</body>
+</html>
+<script>
+    $(".video_path").click(function(){
+        var video_path = $(this).attr('data-path');
+        $("#video").attr('src',video_path);
+    });
+    // 禁止f12
+    $(document).keydown(function(event){
+        if ( event.which == 123 ) {
+            return false;
+        }
+    });
+    // 禁止鼠标右键
+    document.oncontextmenu = function(){
+        event.returnValue = false;
+    }
+</script>

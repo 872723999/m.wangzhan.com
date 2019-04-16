@@ -1,0 +1,187 @@
+{include file="common/common_head"/}
+<script src="/static/home/js/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/common/css/zf.css" />
+<script type="text/javascript" src="/static/home/js/jq.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    function tabs(tabTit,on,tabCon){
+        $(tabTit).children().hover(function(){
+            $(this).addClass(on).siblings().removeClass(on);
+            var index = $(tabTit).children().index(this);
+            $(tabCon).children().eq(index).show().siblings().hide();
+        });
+    };
+    tabs(".tab-hd","active",".tab-bd");
+});
+</script>
+</head>
+
+<body style="background: #f7f7f7;">
+<header>
+  <div class="head-right">
+    <button class="mdui-btn app-btn" mdui-drawer="{target: '#left-drawer'}"><img src="/static/home/img/menu.png" alt="内蒙古都林教育"/></button>
+    <div class="mdui-drawer mdui-drawer-right mdui-drawer-close" id="left-drawer">
+      <ul class="mdui-list app-slide-menu app-collapse-menu" mdui-collapse="{accordion: true}">
+        <li class="mdui-list-item mdui-ripple app-list-home "> <a href="#" class="app-list-item-link mdui-text-left ">
+          <div class="mdui-list-item-content"> <i class="mdui-list-item-icon mdui-icon material-icons"> &#xe88a; </i>首页 </div>
+          </a> </li>
+        <li class="mdui-collapse-item app-hide-list  app-collapse-list"> <a href="qbkc.html" class=" mdui-list-item mdui-ripple  mdui-p-x-0">
+          <div class="menu-click mdui-list-item-content mdui-text-left"> 发现课程 <i class="mdui-collapse-item-arrow mdui-icon material-icons mdui-float-right"> &#xe5cc; </i> </div>
+          </a> </li>
+        <li class="mdui-collapse-item app-hide-list  app-collapse-list"> <a href="mingshi.html" class=" mdui-list-item mdui-ripple  mdui-p-x-0">
+          <div class="menu-click mdui-list-item-content mdui-text-left"> 名师 <i class="mdui-collapse-item-arrow mdui-icon material-icons mdui-float-right"> &#xe5cc; </i> </div>
+          </a> </li>
+        <li class="mdui-collapse-item app-hide-list  app-collapse-list"> <a href="news.html" class=" mdui-list-item mdui-ripple  mdui-p-x-0">
+          <div class="menu-click mdui-list-item-content mdui-text-left"> 新闻中心 <i class="mdui-collapse-item-arrow mdui-icon material-icons mdui-float-right"> &#xe5cc; </i> </div>
+          </a> </li>
+      </ul>
+    </div>
+  </div>
+  <div class="head-middle">内蒙古都林教育</div>
+  <a class="backprev" href="denglu.heml"> <img src="/static/home/img/denglu.png" alt="内蒙古都林教育"/> </a> </header>
+ <div class="xinwen_ban"><img src="/static/home/img/ms.jpg" alt="内蒙古都林教育"/></div>
+    <div class="wnewxqy"><h3><a href="index.html" >首页</a>><span><a href="wap_zf.html">个人中心</a></span></h3></div>
+    
+<div class="zhifu_1">
+    <div>订单号：<font color="red" id="order_num">{$order_num}</font></div>
+    <h1>购买课程</h1>
+        <div class="zhifu_1_fl"><img src="{$admin_path}{$info.pic}"  alt="内蒙古都林教育"/></div>
+        <div class="zhifu_1_fr"><h3>{$info.title}</h3>
+        <p>{$info.describe}
+</p>
+    <p>价格:<span>￥ {$info.price}</span></p><p>原价:<s>￥{$info.old_price}</s></p>
+        
+        </div></div>    
+    <div class="zhifu_2">
+<!--
+/*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*/
+/*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*/
+/*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*/
+/*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*//*微信支付弹框*/ -->  
+<div class="buy_pay_way clearfix">
+            <p class="address_tips">请选择支付方式</p>
+            <div class="zhifubao_and_weixin">
+                <ul class="clearfix">
+                    <!--v-for-start-->       <li style="cursor: pointer;" class="alipay ">
+          <div>
+            <span class="btn btn-pop"><img src="/static/home/img/alipay.png" alt=""></span>
+                <div class="pop">
+   
+         <div class="weixin_pay_box">
+                <div class="weixin_pay_top"> <img src="/static/home/img/alipay.png" style="height: 100px;width: 100px;" alt="" > </div>
+                <div class="weixin_pay_con">
+                  <p class="pay_num">支付金额:<span>￥{$info.price}</span></p>
+                  <div class="weixin_pay_code" style="margin-top: 20px;"> <img alt="" title="微信支付二维码" src="/static/home/img/zfb.jpg"> </div>
+                  <p class="wexin_pay_tips">截屏保存图片用支付宝打开长按识别付款 </p>
+                </div>
+              </div>
+  </div>
+  <!-- 支付宝 -->
+<script>
+var pop = $('.pop');
+$('.btn-pop').on('click', function(e){
+  e.stopPropagation();  
+  pop.show();
+  // 修改支付方式
+    var url = "{:url('pay/edit_pay_type')}";
+    // 订单号
+    var order_num = $("#order_num").html();
+    // 支付类型
+    var price_type = 2;
+    $.ajax({
+        url : url,
+        type : 'post',
+        data : {order_num:order_num,price_type:price_type},
+        dataType : 'json',
+        success : function( msg ){
+            console.log(msg);
+        }
+    });
+});
+
+$('.close').on('click', function(){
+  pop.hide();
+});
+$(document).click(function(e){
+  if(!pop.is(e.target) && pop.has(e.target).length === 0){
+    pop.hide();
+  }
+});
+</script>
+
+          </div>
+        </li>    <li style="cursor: pointer;" class="weixin_pay">
+          <div>
+            <div class="top_contact_us">
+              <div class="top_telphone"></div>
+              <div class="top_weixin"><a href="#" id="contact_weixin" onclick="openWindow(this)"> <img src="/static/home/img/weixin_pay.png" alt=""> </a></div>
+            </div>
+            <div id="light_qq" class="white_content"></div>
+            <div id="light_weixin" class="white_content">
+              <div class="weixin_pay_box">
+                <div class="weixin_pay_top"> <img src="/static/home/img/weixin_pa.png" alt="" > </div>
+                <div class="weixin_pay_con">
+                  <p class="pay_num">支付金额:<span>￥{$info.price}</span></p>
+                  <div class="weixin_pay_code" style="margin-top: 20px;"> <img alt="" title="微信支付二维码" src="/static/home/img/wx_zfm.jpg"> </div>
+                  <p class="wexin_pay_tips"> 截屏保存图片用微信打开长按识别付款 </p>
+                </div>
+              </div>
+            </div>
+            <div id="fade" class="black_overlay"  onClick="closeWindow()"> </div>
+          </div>
+        </li><!--v-for-end-->
+             <script  type="text/javascript">
+    function openWindow(obj){
+        var qq_or_weixin = "light_qq";
+        switch(obj.id)
+        {
+            case 'contact_weixin':
+            qq_or_weixin = "light_weixin";
+            break;
+            
+            case 'contact_qq':
+            qq_or_weixin = "light_qq";
+            break;
+        }
+        document.getElementById(qq_or_weixin).style.display='block';
+        document.getElementById('fade').style.display='block';
+        // 修改支付方式
+        var url = "{:url('pay/edit_pay_type')}";
+        // 订单号
+        var order_num = $("#order_num").html();
+        // 支付类型
+        var price_type = 3;
+        $.ajax({
+            url : url,
+            type : 'post',
+            data : {order_num:order_num,price_type:price_type},
+            dataType : 'json',
+            success : function( msg ){
+                console.log(msg);
+            }
+        });
+    }
+    function closeWindow(){
+        document.getElementById('light_weixin').style.display='none';
+        document.getElementById('light_qq').style.display='none';
+        document.getElementById('fade').style.display='none';
+    }
+</script>     </ul>
+            </div>
+         
+        </div>
+    </div>
+
+    
+    
+    
+    
+    
+<div class="wap_foot1" style="margin-top: 1.5rem;">
+  <p> 内蒙古都林教育 </p>
+  <p>咨询热线：15004710660 / 15248038134</p>
+  <p>Copyright@ 内蒙古都林教育咨询有限公司　版权所有</p>
+  <p>蒙ICP备18001175号-1</p>
+</div>
+</body>
+</html>

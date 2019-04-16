@@ -1,0 +1,37 @@
+body{
+    background: #394054; 
+}
+
+.shipin_fl {float: left; height:1080px; width:156px;background:#131217; margin: 0px; padding: 0px;}
+.shipin_fl_q {padding-top: 34px; width:156px;}
+.shipin_fl_q img {width:93px; height: 93px;padding-left:32px;  }
+.shipin_fl_q p{width: 100%; text-align: center; border-top: 1px solid #2f3136; padding-top: 20px; font-size: 18px; height: 35px; line-height: 35px;}
+.shipin_fl_q p a{ font-size: 18px; color: #fff;text-decoration: none}
+.shipin_fl_q p a:hover{ font-size: 18px; color: #ff6600;}
+.shipin_fr{ width: 1316px; margin-right: 220px; float: right; background: #000000;}
+.shipin_fr_fl {width: 925px;height: auto; overflow: hidden; padding: 30px; float: left;}
+.shipin_fr_fl h3{  color: #fff; font-size: 24px; }
+.shipin_fr_shipin{width: 865px; height: 668px; background: #fff;}
+.shipin_fr_fl_t{width:865px; background: #272c2f; height: 230px; }
+.shipin_fr_fl_tit {width: 100%; border-bottom: 1px solid #ccc;height: 60px;}
+.shipin_fr_fl_tit p {margin-top: 30px; font-size: 18px; color: #fff; border-bottom: 3px solid #f60; width: 120px; text-align: center; height:auto;overflow: hidden; line-height: 60px; margin-left: 20px}
+.shipin_fr_fl_ner{width:702px; margin-left: 20px; }
+
+.shipin_fr_fl_ner ul{ margin:0; padding:0; list-style: none;}
+.shipin_fr_fl_ner ul li{ width:219px; height:123px; float:left; margin:15px 6px 45px 6px;position:relative;}
+.shipin_fr_fl_ner ul li div{position:absolute;width:219px;height:35px; line-height:35px; text-align:center;z-indent:2; bottom:-15px;background:rgba(0,0,0,0.7);  }
+.shipin_fr_fl_ner ul li div font{font-weight:bold; }
+.shipin_fr_fl_ner ul li div p{}
+.shipin_fr_fl_ner ul li a{ color:#fff;}
+.shipin_fr_fl_ner ul li a:hover{ color:#ff6600;}
+
+
+.shipin_fr_fr {width: 330px; float:right; padding-top: 20px;}
+.shipin_fr_fr h3 { width: 300px; height: 35px; line-height: 35px; color: #fff; font-size: 18px; background: #3d4045; padding-left: 20px;list-style-image: url(/static/home/img/course/icn_zhankai.png);}
+.shipin_fr_fr ul {list-style:inherit;}
+.shipin_fr_fr ul li{width: 305px; height: 29px; color: #FFFFFF; margin-bottom: 20px;}
+.shipin_fr_fr ul li span{width: 285px; height:29px; line-height: 29px;}
+.shipin_fr_fr ul li span a{ color: #FFFFFF; font-size: 14px; float: left;}
+
+.shipin_fr_fr ul li span a:hover{ color: #FFFFFF; background:#3d4045}
+.shipin_fr_fr ul li img{float:right; width: 20px; height: 20px; margin-right: 50px; margin-top: 5px; }

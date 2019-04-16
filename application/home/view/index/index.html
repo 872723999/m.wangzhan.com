@@ -1,0 +1,213 @@
+{include file="common/common_head"/}
+<script src="/static/common/js/swiper.min.js"></script>
+</head>
+
+<body>
+<header>
+  {include file="common/common_navhead"/}
+  <div class="head-middle">内蒙古都林教育</div>
+  <a class="backprev" href="{:url('my/index')}"> <img src="/static/home/img/denglu.png" alt="内蒙古都林教育"/> </a> </header>
+<section id="iBanner" class="iBanner">
+  <div class="swiper-container swiper-container1">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="/static/home/img/ban2.jpg" alt="秋季预报名" width="100%"></div>
+      <div class="swiper-slide"><img src="/static/home/img/ban1.jpg" alt="秋季预报名" width="100%"></div>
+      <div class="swiper-slide"><img src="/static/home/img/ban3.jpg" alt="秋季预报名" width="100%"></div>
+      <script type="text/javascript">var ref="";if(document.referrer.length>0){ref=document.referrer}try{if(ref.length==0&&opener.location.href.length>0){ref=opener.location.href}}catch(e){ref=window.location.href}document.getElementById("call_fromurl_body").value=ref;</script><script type="text/javascript">var ref="";if(document.referrer.length>0){ref=document.referrer}try{if(ref.length==0&&opener.location.href.length>0){ref=opener.location.href}}catch(e){ref=window.location.href}document.getElementById("call_fromurl_body").value=ref;</script><script>
+    var swiperl = new Swiper('.swiper-container5', {
+        paginationClickable: true,
+        slidesPerView: 5,
+        spaceBetween: 50,
+        breakpoints: {
+      1920: {
+                slidesPerView: 4,
+                spaceBetween: 0
+            },
+            1024: {
+                slidesPerView: 4,
+                spaceBetween: 0
+            },
+            768: {
+                slidesPerView: 4,
+                spaceBetween: 0
+            },
+            640: {
+                slidesPerView: 4,
+                spaceBetween: 0
+            },
+            320: {
+                slidesPerView: 4,
+                spaceBetween: 0
+            }
+        }
+    });
+    var mySwiper = new Swiper ('.swiper-container1', {
+        loop: true,
+        autoplay:4000,
+        //阻止点击冒泡
+        preventLinksPropagation : false,
+        paginationClickable: true,
+        pagination: '.swiper-pagination1'
+    });
+
+    var swiper = new Swiper('.swiper-container2', {
+        paginationClickable: true,
+    loop: true,
+        autoplay:3000,
+        direction: 'vertical'
+    });
+    var swiper6 = new Swiper('.swiper-container6', {
+        pagination: '.swiper-pagination6',
+        paginationClickable: true
+    });
+    var tabsSwiper = new Swiper('#tabs-container',{
+        speed:500,
+        onSlideChangeStart: function(){
+            $(".tabs .active").removeClass('active')
+            $(".tabs a").eq(tabsSwiper.activeIndex).addClass('active')
+        },
+    onSlideChangeEnd:function(swiper){
+    if(swiper.activeIndex===1){
+      hyload();
+    }
+    if(swiper.activeIndex===2){
+      whload();
+    }
+    }
+    })
+    $(".tabs a").on('touchstart mousedown',function(e){
+        e.preventDefault()
+        $(".tabs .active").removeClass('active')
+        $(this).addClass('active')
+        tabsSwiper.slideTo( $(this).index() )
+    })
+    $(".tabs a").click(function(e){
+        e.preventDefault()
+    })
+</script> 
+    </div>
+    <div class="swiper-pagination swiper-pagination1"></div>
+  </div>
+</section>
+<div class="wap_qnke">
+    <h3 class="wap_qnke_t">推荐课程</h3>
+    <p class="wap_qnke_t1">公务员、事业单位（各盟市) 、政法干警考试、司法考试等
+    各类职业人才的招录考试、笔试及面试培训</p>
+    <div id="box" class="kcb">
+        <div id="head_list" class="kcb_head_list">
+                <input type="button" value="法考真题解析课程"  class="active"/>
+                <input type="button" value="法考专项课程" />
+                <input type="button" value="法考免费试听课" />
+            
+        </div>
+
+        <div id="menu_content" class="neri">
+            <!-- 法考真题解析课程 -->
+            <nav style="display:block;">
+                <div class="kcsz_ner">
+                    <ul>
+                        {volist name="course_list1" id="val"}
+                            <a href="{:url('course/info')}?id={$val.id}" target="_blank">
+                                <li>
+                                    <img src="{$val.pic}" alt="内蒙古都林教育" style="height: 265px;height: 170px;"/>
+                                    <h3>{$val.title}</h3>
+                                    <div>
+                                        <div class="kcsz_ner_fr">{$val.cang}</div>
+                                        <div class="kcsz_ner_righ">￥{$val.price}元</div>
+                                    </div>
+                                </li>
+                            </a>
+                        {/volist}
+                    </ul>
+                </div>
+            </nav>
+            <!-- 法考专项课程 -->
+            <nav style="display:none;">
+                <div class="kcsz_ner">
+                    <ul>
+                        {volist name="course_list2" id="val"}
+                        <a href="{:url('course/info')}?id={$val.id}" target="_blank">
+                            <li><img src="{$val.pic}" alt="内蒙古都林教育"/>
+                              <h3>{$val.title}</h3>
+                              <p>{$val.describe}</p>
+                              <div>
+                                <div class="kcsz_ner_fr">{$val.cang}</div>
+                                <div class="kcsz_ner_righ">￥{$val.price}元</div>
+                              </div>
+                            </li>
+                        
+                        </a>
+                        {/volist}
+                    </ul>
+                </div>
+            </nav>
+            <nav style="display:none;">
+                <div class="kcsz_ner">
+                    <ul>
+                        {volist name="course_list3" id="val"}
+                            <a href="{:url('course/info')}?id={$val.id}" target="_blank">
+                                <li><img src="{$val.pic}" alt="内蒙古都林教育"/>
+                                  <h3>{$val.title}</h3>
+                                  <p>{$val.describe}</p>
+                                  <div>
+                                    <div class="kcsz_ner_fr">{$val.cang}</div>
+                                    <div class="kcsz_ner_righ">￥{$val.price}元</div>
+                                  </div>
+                                </li>
+                            </a>
+                        {/volist}
+                    </ul>
+                </div>
+            </nav>
+            </div>
+        </div>
+<script>
+            var head_list = document.getElementById("head_list");
+            var menu_content = document.getElementById("menu_content");
+            var oli = head_list.getElementsByTagName("input");
+            var odiv = menu_content.getElementsByTagName("nav");
+            for(var i=0 ; i<oli.length ; i++){
+                oli[i].index = i;
+                    oli[i].onclick = function( ){
+                    for(var i =0; i < oli.length; i++){
+                        oli[i].className = "";
+                        odiv[i].style.display = "none";
+                    }
+                    this.className = "active";
+                    odiv[this.index].style.display="block";
+                }
+            }
+        </script>
+
+  <div class="kcsz_zx"><a href="{:url('course/course_list')}?classType_id=0&classSmallType_id=0&teaching_type=0" target="_blank">更多课程</a></div>
+</div>
+<div class="wkcb_bg">
+  <h3>课程包</h3>
+  <p>{$package_list.title}</p>
+  <div class="wkcb_bgimg"><img src="{$admin_path}{$package_list.pic}" alt="内蒙古都林教育" style="height: 384px;height: 162px;" /></div>
+  <div class="wkcb_bgner_fr">
+    <p>法考专项班有效天数：{$package_list.day}天        打包价格：<span>￥{$package_list.price}</span> <s>￥{$package_list.old_price}</s></p>
+    <h3>并赠送价值380元讲义一套及价值188元的近五年历年真题！！！</h3>
+    <div class="wkcb_bgan_fl"> <a href="{:url('pay/index')}?package_id={$package_list.id}">我要购买</a></div>
+    <div class="wkcb_bgan_fr"> <a href="{:url('course/bao_info')}?id={$package_list.id}">课程详情</a></div>
+  </div>
+</div>
+<div class="wapnews">
+  <h2>新闻资讯</h2>
+  <div class="wapnews_ner">
+    <div class="wapnews_nerfr">
+      <ul>
+        {volist name="article_list" id="val"}
+            <li style="min-width: 300px;">
+                <h3><a href="{:url('article/info')}?id={$val.id}">{$val.title}</a></h3>
+                <p><a href="{:url('article/info')}?id={$val.id}">{$val.introduction}</a></p>
+            </li>
+        {/volist}
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="kcsz_zx"><a href="{:url('article/article_list')}" target="_blank">更多新闻</a></div>
+{include file="common/common_bottom"/}
+</body>
+</html>

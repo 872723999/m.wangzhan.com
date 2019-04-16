@@ -1,0 +1,150 @@
+{include file="common/common_head"/}
+<style>
+  .active{
+  	border-bottom: 2px solid red;
+  }
+</style>
+<script type="text/javascript" src="/static/home/js/jq.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    function tabs(tabTit,on,tabCon){
+        $(tabTit).children().hover(function(){
+            $(this).addClass(on).siblings().removeClass(on);
+            var index = $(tabTit).children().index(this);
+            $(tabCon).children().eq(index).show().siblings().hide();
+      });
+  };
+    tabs(".tab-hd","active",".tab-bd");
+});
+</script>
+</head>
+
+<body>
+<header>
+  {include file="common/common_navhead"/}
+  <div class="head-middle">内蒙古都林教育</div>
+  <a class="backprev" href="{:url('my/index')}"> <img src="/static/home/img/denglu.png" alt="内蒙古都林教育"/> </a> </header>
+  <div class="sesou">
+          <input type="text" class="search1" id="keywords" placeholder="请输入搜索内容"/>
+          <input type="button" class="sousuo1 button search_btn" value="GO"/>
+        </div>
+<div class="wap_qnke">
+  <h3 class="wap_qnke_t">推荐课程</h3>
+<div class="kecheng_dhfl">
+        <div class="kecheng_dhflsh">
+            <p>学 科：</p>
+            <p><a href="{url('course_list')}?classType_id=0&classSmallType_id=0&teaching_type=0" id="classType_0" class="active classType_list">全部</a></p>
+            <ul>
+            {volist name="classType_list" id="val"}
+                <li><a href="{url('course_list')}?classType_id={$val.id}&classSmallType_id=0&teaching_type=<?=$_GET['teaching_type']?>" id="classType_{$val.id}" class="classType_list">{$val.title}</a></li>
+            {/volist}
+            </ul>
+        </div>
+         
+        <div class="kecheng_dhflsh1">
+          <p>学科小类：</p>
+          
+          <ul>
+            <li><a href="{:url('course/course_list')}?classType_id={$_GET['classType_id']}&classSmallType_id=0&teaching_type=0" id="classSmallType_0" class="classSamllType_list active">全部</a></li>
+            {notempty name="classSmallType_list"}
+                {volist name="classSmallType_list" id="val"}
+                    <li><a href="{:url('course/course_list')}?classType_id=<?=$_GET['classType_id']?>&classSmallType_id={$val.id}&teaching_type=<?=$_GET['teaching_type']?>" id="classSmallType_{$val.id}" class="classSamllType_list" >{$val.title}</a></li>
+                {/volist}
+            {/notempty}
+          </ul>
+        </div>
+        <div style="margin: 10px;" class="kecheng_dhflsh1">
+          <p>授课方式：</p>
+          
+          <ul>
+            <li><a href="{:url('course/course_list')}?classType_id={$_GET['classType_id']}&classSmallType_id=<?=$_GET['classSmallType_id']?>&teaching_type=0" id="teaching_type_0" class="teaching_type_list active">全部</a></li>
+            {volist name="teaching_type" id="val"}
+                <li><a href="{:url('course/course_list')}?classType_id={$_GET['classType_id']}&classSmallType_id=<?=$_GET['classSmallType_id']?>&teaching_type={$key}" id="teaching_type_{$key}" class="teaching_type_list">{$val}</a></li>
+            {/volist}
+          </ul>
+        </div>
+      
+      </div>
+ <div id="box" class="kcb">
+            <div id="menu_content" class="neri">
+                <!-- 法考真题解析课程 -->
+                <nav style="display:block;">
+                    <div class="kcsz_ner">
+                        <ul>
+                            {notempty name="$course_list"}
+                                {volist name="course_list" id="val"}
+                                    <a href="{:url('course/info')}?id={$val.id}" target="_blank">
+                                        <li>
+                                            <img src="{$admin_path}{$val.pic}" alt="内蒙古都林教育"/>
+                                            <h3>{$val.title}</h3>
+                                            <div>
+                                                <div class="kcsz_ner_fr">{$cang}</div>
+                                                <div class="kcsz_ner_righ">￥{$val.price}元</div>
+                                            </div>
+                                        </li>
+                                    </a>
+                                {/volist}
+                            {else /}
+                            <div style="text-align: center;">
+                                <font color="red">数据为空</font>
+                            </div>
+                            {/notempty}
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+<script>
+            var head_list = document.getElementById("head_list");
+            var menu_content = document.getElementById("menu_content");
+            var oli = head_list.getElementsByTagName("input");
+            var odiv = menu_content.getElementsByTagName("nav");
+            for(var i=0 ; i<oli.length ; i++){
+                oli[i].index = i;
+                    oli[i].onclick = function( ){
+                    for(var i =0; i < oli.length; i++){
+                        oli[i].className = "";
+                        odiv[i].style.display = "none";
+                    }
+                    this.className = "active";
+                    odiv[this.index].style.display="block";
+                }
+            }
+        </script>
+
+    <!--  <div class="course-filter-page"> <a href="/fakao/teacher?subject=&amp;skip=0" class="ui-page ui-page-selected">1</a> <a href="/fakao/teacher?subject=&amp;skip=12" class="ui-page ">2</a> <a href="/fakao/teacher?subject=&amp;skip=24" class="ui-page ">3</a> <a href="/fakao/teacher?subject=&amp;skip=36" class="ui-page ">4</a> <a href="/fakao/teacher?subject=&amp;skip=48" class="ui-page ">5</a> <a href="/fakao/teacher?subject=&amp;skip=48" class="ui-page ui-page-footer">尾页</a> </div> -->
+  
+  
+  
+</div>
+
+{include file="common/common_bottom"/}
+</body>
+</html>
+<script type="text/javascript">
+    $(function(){
+        // 学科
+        var classType_id = "<?=$_GET['classType_id']?>";
+        $(".classType_list").removeClass('active');
+        $("#classType_"+classType_id).addClass('active');
+        // 学科小类
+        var classSmallType_id = "<?=$_GET['classSmallType_id']?>";
+        $(".classSamllType_list").removeClass('active');
+        $("#classSmallType_"+classSmallType_id).addClass('active');
+        // 教学方式
+        var teaching_type = "<?=$_GET['teaching_type']?>";
+        $(".teaching_type_list").removeClass('active');
+        $("#teaching_type_"+teaching_type).addClass('active');
+    });
+
+    // 搜索
+    $('.search_btn').click(function(){
+        var keywords = $('#keywords').val();
+        if(!keywords){
+            alert('搜索项不能为空');
+            return false;
+        }else{
+            location.href="{url('course_list')}?classType_id=0&classSmallType_id=0&teaching_type=0&keywords="+keywords;
+        }
+    });
+</script>
