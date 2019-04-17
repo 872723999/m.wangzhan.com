@@ -4,6 +4,8 @@ namespace app\home\controller;
 use app\home\model\WzTeacher;
 // 课程表
 use app\home\model\WzCourse;
+// 订单表
+use app\home\model\WzOrder;
 // 老师
 class Teacher extends Common{
     
@@ -12,6 +14,8 @@ class Teacher extends Common{
         $this->teacher_model = new WzTeacher();
         // 课程表
         $this->course_model = new WzCourse();
+        // 订单表
+        $this->order_model = new WzOrder();
 
         parent::initialize();
     }
@@ -23,6 +27,9 @@ class Teacher extends Common{
         $tui_list = $this->teacher_model->where('id','<>',$id)->limit(3)->select()->toArray();
         // 课程列表
         $course_list = $this->course_model->where('teacher_id',$id)->paginate(config('pageSize'),false,['query' => request()->param()]);
+        foreach ($course_list as $key => &$val) {
+            $val['buy_num'] = $this->order_model->get_num(['course_id'=>$val['id']]);
+        }
         $this->assign([
             'info'  => $info,
             'tui_list'  => $tui_list,

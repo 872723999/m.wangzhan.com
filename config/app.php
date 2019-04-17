@@ -159,7 +159,7 @@ return [
             'last_page'=>true  //尾页
         ]
     ],
-    'pageSize'=>1,
+    'pageSize'=>8,
     //自定义配置
     'sys_name' =>'CLTPHP',
     //文件上传

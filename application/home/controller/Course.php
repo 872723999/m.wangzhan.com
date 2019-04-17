@@ -235,6 +235,10 @@ class Course extends Common{
             $bao_list = $this->package_model->where( $map )->where('title','like',"%".$data['keywords']."%")->paginate(config('pageSize'),false,['query' => request()->param()]);
         }
 
+        foreach ($bao_list as $key => &$val) {
+            $val['buy_num'] = $this->order_model->get_num(['package_id'=>$val['id']]);
+        }
+
         $this->assign([
             'bao_list'  =>  $bao_list
         ]);
@@ -249,6 +253,10 @@ class Course extends Common{
         $course_num = count(explode(',',$package_info['course_ids']));
         // 包下面的课程
         $course_list = $this->course_model->whereIn('id',$package_info['course_ids'])->select()->toArray();
+        foreach ($course_list as $key => &$val) {
+            $val['buy_num'] = $this->order_model->get_num(['course_id'=>$val['id']]);
+        }
+
         // 推荐老师
         $tui_teacher_list = $this->teacher_model->limit(2)->select()->toArray();
 

@@ -8,6 +8,9 @@ use app\home\model\WzCourse;
 use app\home\model\WzPackage;
 // 文章表
 use app\home\model\WzArticle;
+// 订单表
+use app\home\model\WzOrder;
+
 use think\Controller;
 class Index extends Common{
     public function initialize(){
@@ -19,6 +22,8 @@ class Index extends Common{
         $this->package_model = new WzPackage();
         // 文章表
         $this->article_model = new WzArticle();
+        // 订单表
+        $this->order_model = new WzOrder();
         // 学科列表
         $classType_list = $this->class_type_model->get_list();
 
@@ -44,7 +49,23 @@ class Index extends Common{
         $package_list = $this->package_model->where('is_tui',1)->limit(1)->select()->toArray();
         // 文章表
         $article_list = $this->article_model->where('is_tui',1)->select()->toArray();
-        
+
+        foreach ($list as $key => &$val) {
+            $val['buy_num'] = $this->order_model->get_num(['course_id'=>$val['id']]);
+        }
+
+        foreach ($course_list1 as $key => &$val) {
+            $val['buy_num'] = $this->order_model->get_num(['course_id'=>$val['id']]);
+        }
+
+        foreach ($course_list2 as $key => &$val) {
+            $val['buy_num'] = $this->order_model->get_num(['course_id'=>$val['id']]);
+        }
+
+        foreach ($course_list3 as $key => &$val) {
+            $val['buy_num'] = $this->order_model->get_num(['course_id'=>$val['id']]);
+        }
+
         $this->assign([
             'list'  => $list,
             'course_list1'   => $course_list1,
