@@ -21,7 +21,7 @@ $(function(){
   <div class="head-middle">内蒙古都林教育</div>
   <a class="backprev" href="{:url('my/index')}"> <img src="/static/home/img/denglu.png" alt="内蒙古都林教育"/> </a> </header>
  <div class="xinwen_ban"><img src="/static/home/img/kcbxq.jpg" alt="内蒙古都林教育"/></div>
-    <div class="wnewxqy"><h3><a href="index.html" >首页</a>><a href="kcb.html">课程包</a>><span><a href="kcbxqy.html">课程包详情</a></span></h3></div>
+    <div class="wnewxqy"><h3><a href="/" >首页</a>><a href="{:url('course/bao_list')}?classType_id=1">课程包</a>><span><a href="#">课程包详情</a></span></h3></div>
 
     <div class="kcbxqy_con">
         <div class="kcbxqy_confl"><div class="kcbxqy_confl_fl"><img src="/static/home/img/kcxq.jpg" width="100%" alt="内蒙古都林教育"/ ></div>
@@ -37,7 +37,7 @@ $(function(){
             </li>
             <li>
               <p>学员</p>
-              <p> 80</p>
+              <p> {$info.buy_num}</p>
             </li>
           </ul>
         </div>

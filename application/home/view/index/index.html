@@ -111,6 +111,7 @@
                                 <li>
                                     <img src="{$val.pic}" alt="内蒙古都林教育" style="height: 265px;height: 170px;"/>
                                     <h3>{$val.title}</h3>
+                                    <p>{$val.small_title}</p>
                                     <div>
                                         <div class="kcsz_ner_fr">{$val.buy_num}</div>
                                         <div class="kcsz_ner_righ">￥{$val.price}元</div>
@@ -127,9 +128,9 @@
                     <ul>
                         {volist name="course_list2" id="val"}
                         <a href="{:url('course/info')}?id={$val.id}" target="_blank">
-                            <li><img src="{$val.pic}" alt="内蒙古都林教育"/>
+                            <li><img src="{$val.pic}" alt="内蒙古都林教育" style="height: 265px;height: 170px;"/>
                               <h3>{$val.title}</h3>
-                              <p>{$val.describe}</p>
+                              <p>{$val.small_title}</p>
                               <div>
                                 <div class="kcsz_ner_fr">{$val.buy_num}</div>
                                 <div class="kcsz_ner_righ">￥{$val.price}元</div>
@@ -146,9 +147,9 @@
                     <ul>
                         {volist name="course_list3" id="val"}
                             <a href="{:url('course/info')}?id={$val.id}" target="_blank">
-                                <li><img src="{$val.pic}" alt="内蒙古都林教育"/>
+                                <li><img src="{$val.pic}" alt="内蒙古都林教育" style="height: 265px;height: 170px;"/>
                                   <h3>{$val.title}</h3>
-                                  <p>{$val.describe}</p>
+                                  <p>{$val.small_title}</p>
                                   <div>
                                     <div class="kcsz_ner_fr">{$val.buy_num}</div>
                                     <div class="kcsz_ner_righ">￥{$val.price}元</div>

@@ -25,22 +25,22 @@ $(function(){
         <li class="mdui-list-item mdui-ripple app-list-home "> <a href="#" class="app-list-item-link mdui-text-left ">
           <div class="mdui-list-item-content"> <i class="mdui-list-item-icon mdui-icon material-icons"> &#xe88a; </i>首页 </div>
           </a> </li>
-        <li class="mdui-collapse-item app-hide-list  app-collapse-list"> <a href="qbkc.html" class=" mdui-list-item mdui-ripple  mdui-p-x-0">
+        <li class="mdui-collapse-item app-hide-list  app-collapse-list"> <a href="{:url('course/course_list')}?classType_id=0&classSmallType_id=0&teaching_type=0" class=" mdui-list-item mdui-ripple  mdui-p-x-0">
           <div class="menu-click mdui-list-item-content mdui-text-left"> 发现课程 <i class="mdui-collapse-item-arrow mdui-icon material-icons mdui-float-right"> &#xe5cc; </i> </div>
           </a> </li>
-        <li class="mdui-collapse-item app-hide-list  app-collapse-list"> <a href="mingshi.html" class=" mdui-list-item mdui-ripple  mdui-p-x-0">
+        <li class="mdui-collapse-item app-hide-list  app-collapse-list"> <a href="{:url('teacher/list')}" class=" mdui-list-item mdui-ripple  mdui-p-x-0">
           <div class="menu-click mdui-list-item-content mdui-text-left"> 名师 <i class="mdui-collapse-item-arrow mdui-icon material-icons mdui-float-right"> &#xe5cc; </i> </div>
           </a> </li>
-        <li class="mdui-collapse-item app-hide-list  app-collapse-list"> <a href="news.html" class=" mdui-list-item mdui-ripple  mdui-p-x-0">
+        <li class="mdui-collapse-item app-hide-list  app-collapse-list"> <a href="{:url('article/article_list')}?article_type=0" class=" mdui-list-item mdui-ripple  mdui-p-x-0">
           <div class="menu-click mdui-list-item-content mdui-text-left"> 新闻中心 <i class="mdui-collapse-item-arrow mdui-icon material-icons mdui-float-right"> &#xe5cc; </i> </div>
           </a> </li>
       </ul>
     </div>
   </div>
   <div class="head-middle">内蒙古都林教育</div>
-  <a class="backprev" href="denglu.heml"> <img src="/static/home/img/denglu.png" alt="内蒙古都林教育"/> </a> </header>
+  <a class="backprev" href="{:url('user/login')}"> <img src="/static/home/img/denglu.png" alt="内蒙古都林教育"/> </a> </header>
  <div class="xinwen_ban"><img src="/static/home/img/ms.jpg" alt="内蒙古都林教育"/></div>
-    <div class="wnewxqy"><h3><a href="index.html" >首页</a>><span><a href="wap_zf.html">个人中心</a></span></h3></div>
+    <div class="wnewxqy"><h3><a href="/" >首页</a>><span><a href="{:url('my/index')}">个人中心</a></span></h3></div>
     
 <div class="zhifu_1">
     <div>订单号：<font color="red" id="order_num">{$order_num}</font></div>

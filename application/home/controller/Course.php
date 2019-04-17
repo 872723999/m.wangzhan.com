@@ -260,6 +260,8 @@ class Course extends Common{
         // 推荐老师
         $tui_teacher_list = $this->teacher_model->limit(2)->select()->toArray();
 
+        $package_info['buy_num'] = $this->order_model->get_num(['package_id'=>$id]);
+
         $this->assign([
             'info'  => $package_info,
             'course_list'   => $course_list,

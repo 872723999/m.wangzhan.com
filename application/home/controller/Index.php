@@ -39,10 +39,10 @@ class Index extends Common{
 
         // 全部课程列表
         // $course_list = $this->course_model->get_list('id,title,describe,price,pic,cang,class_type_id');
-        // 法考专项课程
-        $course_list1 = $this->course_model->get_list('id,title,describe,price,pic,cang,class_type_id',1);
         // 法考真题解析课程
-        $course_list2 = $this->course_model->get_list('id,title,describe,price,pic,cang,class_type_id',2);
+        $course_list1 = $this->course_model->get_list('id,title,describe,price,pic,cang,class_type_id',10);
+        // 法考专项课程
+        $course_list2 = $this->course_model->get_list('id,title,describe,price,pic,cang,class_type_id',1);
         // 法考免费试听课
         $course_list3 = $this->course_model->get_list('id,title,describe,price,pic,cang,class_type_id',3);
         // 课程包列表

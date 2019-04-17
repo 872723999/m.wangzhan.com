@@ -21,7 +21,7 @@ $(function(){
   <a class="backprev" href="{:url('my/index')}"> <img src="/static/home/img/denglu.png" alt="内蒙古都林教育"/> </a> </header>
 <div class="xinwen_ban"><img src="/static/home/img/kcbxq.jpg" alt="内蒙古都林教育"/></div>
 <div class="wnewxqy">
-  <h3><a href="index.html" >首页</a>><a href="qbkc.html">发现课程</a>><span><a href="qukcxqy.html">课程包详情</a></span></h3>
+  <h3><a href="/" >首页</a>><a href="{:url('course/course_list')}?classType_id=0&classSmallType_id=0&teaching_type=0">发现课程</a>><span><a href="#">课程包详情</a></span></h3>
 </div>
 <div class="zh-class-page">
   <div class="qbkc_t"> <img src="{$info.pic}" width="100%" style="width: 475px;height: 273px;" alt="内蒙古都林教育"></div>
@@ -84,7 +84,7 @@ $(function(){
                                           	{else /}
                                           		<a href="{:url('pay/index')}?course_id={$info.id}" class="course-lesson-btn" target="_blank">立即播放</a>
                                           	{/if}
-				    			            <div class="course-lesson-duration"> <span class="ic_lesson-duration"><img src="/static/home/img/ic_time_1.png" alt="" width="13"></span> 00:00:54 </div>
+				    			            <div class="course-lesson-duration"></div>
 				    	          		</li>
 				    	        	{/volist}
 			            		{/notempty}

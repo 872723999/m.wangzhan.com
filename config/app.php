@@ -182,7 +182,7 @@ return [
     'pinpai' => '彬彬教育',
 
     // 后台域名：
-    'admin_path' => 'http://www.wangzhan.com',
+    'admin_path' => 'http://admin.dulinjiaoyu.com',
 
      //导师类型
     'tutor_type' =>[
